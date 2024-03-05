@@ -8,8 +8,13 @@ import { ParseFiltersPipe } from './utils/parse-filters-pipe';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  @Get('/test')
+  testResponse() {
+    return 'Hello World';
+  }
+
   @Get('/:formId/filteredResponses')
-  async getStuff(
+  async getFormResponses(
     @Param('formId') formId: string, // THIS IS ACTUALLY UNUSED SINCE WE HARDCODE THE FORM_ID IN THE SERVICE
     @Query(new ParseFiltersPipe()) queryParams: QueryParamsWithFilters,
   ): Promise<FormResponse> {
