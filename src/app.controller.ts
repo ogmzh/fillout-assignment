@@ -8,7 +8,7 @@ import { ParseFiltersPipe } from './utils/parse-filters-pipe';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('/test')
+  @Get(['/', '/test'])
   testResponse() {
     return 'Hello World';
   }
